@@ -7,41 +7,42 @@ Aplicación **Progressive Web App (PWA)** desarrollada en **React + Vite** que m
 ## 🚀 Características principales
 
 - ✅ Estructura de **App Shell** con:
-  - Encabezado (Header)
-  - Menú de navegación (Nav)
-  - Pie de página (Footer)
+  - Encabezado (**Header**)
+  - Menú de navegación (**Nav**)
+  - Pie de página (**Footer**)
   - Vistas dinámicas: `Titulares` y `Buscar`
-- ⚙️ Backend Express (`news-api-proxy`) para consumir la API de [NewsAPI.org](https://newsapi.org)
+- ⚙️ Backend **Express (`news-api-proxy`)** para consumir la API de [NewsAPI.org](https://newsapi.org)
 - 💾 **Service Worker** con:
-  - Cacheo del App Shell (`index.html`, íconos, manifest)
-  - Fallback offline (`offline.html`)
+  - Cacheo del **App Shell** (`index.html`, íconos, manifest)
+  - **Fallback offline** (`offline.html`)
   - Estrategia `stale-while-revalidate` para datos dinámicos (`/api/`)
 - 📱 **Archivo `manifest.json`** con íconos, nombre y colores de tema
-- 🌐 Soporte **offline completo** y modo “standalone” en móviles
+- 🌐 Soporte **offline completo** y modo *standalone* en móviles
 
 ---
 
 ## 🏗️ Arquitectura general
 
+```bash
 📦 Proyecto raíz
-├── 📂 news-pwa/ # Frontend 
-│ ├── public/
-│ │ ├── sw.js # Service Worker
-│ │ ├── manifest.json # Configuración PWA
-│ │ ├── offline.html # Página de fallback sin conexión
-│ │ └── icons/ # Íconos 192x192 y 512x512
-│ ├── src/
-│ │ ├── components/ # Header, Nav, Footer
-│ │ ├── pages/ # News.jsx, Search.jsx
-│ │ ├── App.jsx # Estructura principal (App Shell)
-│ │ └── main.jsx # Registro de React y Service Worker
-│ ├── vite.config.js
-│ └── package.json
+├── 📂 news-pwa/              # Frontend (React + Vite)
+│   ├── public/
+│   │   ├── sw.js             # Service Worker
+│   │   ├── manifest.json     # Configuración PWA
+│   │   ├── offline.html      # Página de fallback sin conexión
+│   │   └── icons/            # Íconos 192x192 y 512x512
+│   ├── src/
+│   │   ├── components/       # Header, Nav, Footer
+│   │   ├── pages/            # News.jsx, Search.jsx
+│   │   ├── App.jsx           # Estructura principal (App Shell)
+│   │   └── main.jsx          # Registro de React y Service Worker
+│   ├── vite.config.js
+│   └── package.json
 │
-└── 📂 news-api-proxy/ # Backend (Express)
-├── server.js 
-├── .env # Clave API (NEWS_API_KEY)
-└── package.json
+└── 📂 news-api-proxy/        # Backend (Express)
+    ├── server.js
+    ├── .env                  # Clave API (NEWS_API_KEY)
+    └── package.json
 
 
 
